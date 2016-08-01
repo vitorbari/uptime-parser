@@ -1,0 +1,22 @@
+{
+  "name": "vitorbari/uptime-parser",
+  "type": "library",
+  "description": "A PHP package for parsing uptime command output",
+  "keywords": ["php", "uptime", "parser"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Vitor Bari Buccianti",
+      "email": "vitorbari@gmail.com"
+    }
+  ],
+  "require": {},
+  "require-dev": {
+    "phpunit/phpunit": "4.0.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "VitorBari\\UptimeParser\\": "src"
+    }
+  }
+}
