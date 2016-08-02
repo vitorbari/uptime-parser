@@ -17,7 +17,9 @@ class Parser
      * @var array
      */
     private $parsers = array(
-        'SNMPTimeticks'
+        'SNMPTimeticks',
+        'SNMPTimeticks0Days',
+        'SystemUptime'
     );
 
     const SECONDS_PER_DAY = 86400;
@@ -56,6 +58,7 @@ class Parser
 
         foreach ($this->parsers as $parse) {
             $classname = __NAMESPACE__ . '\Parsers\\' . $parse;
+
             $seconds = (new $classname)->match($uptime);
 
             if (is_numeric($seconds)) {
@@ -64,7 +67,7 @@ class Parser
             }
         }
 
-        if($this->seconds == NULL) {
+        if ($this->seconds == NULL) {
             throw new InvalidArgumentException(sprintf("Unable to parse the string '%s'", $uptime));
         }
     }
@@ -76,7 +79,13 @@ class Parser
      */
     public function toTimeString()
     {
+        if (!$this->seconds) {
+            return NULL;
+        }
 
+        $dtF = new \DateTime('@0');
+        $dtT = new \DateTime("@$this->seconds");
+        return $dtF->diff($dtT)->format('%a day(s), %h hour(s), %i minute(s) and %s second(s)');
     }
 
     /**

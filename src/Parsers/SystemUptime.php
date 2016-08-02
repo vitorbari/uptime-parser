@@ -3,18 +3,18 @@
 
 use VitorBari\UptimeParser\Parser;
 
-class SNMPTimeticks implements ParserInterface
+class SystemUptime implements ParserInterface
 {
 
     public function match($uptime)
     {
         if (preg_match_all(
-            '/^SNMP\ OK\ -\ Timeticks[:,]\ \(\d+\)\ (?<days>\d+) day[s]?, (?<hours>\d{1,2})[:,](?<minutes>\d{1,2})[:,](?<seconds>\d{1,2}).*$/',
+            '/^System Uptime\ -\ (?<days>\d+)\ day\(s\)\ (?<hours>\d+)\ hour\(s\)\ (?<minutes>\d+)\ minute\(s\)$/',
             $uptime,
             $matches
         )) {
             return $matches['days'][0] * Parser::SECONDS_PER_DAY + $matches['hours'][0] * Parser::SECONDS_PER_HOUR +
-            $matches['minutes'][0] * Parser::SECONDS_PER_MINUTE + $matches['seconds'][0];
+            $matches['minutes'][0] * Parser::SECONDS_PER_MINUTE;
         }
     }
 }
