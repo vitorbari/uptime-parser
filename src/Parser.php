@@ -56,10 +56,11 @@ class Parser
     {
         $this->seconds = NULL;
 
-        foreach ($this->parsers as $parse) {
-            $classname = __NAMESPACE__ . '\Parsers\\' . $parse;
+        foreach ($this->parsers as $parser) {
+            $classname = __NAMESPACE__ . '\Parsers\\' . $parser;
+            $parser_object = new $classname;
 
-            $seconds = (new $classname)->match($uptime);
+            $seconds = $parser_object->match($uptime);
 
             if (is_numeric($seconds)) {
                 $this->seconds = $seconds;
