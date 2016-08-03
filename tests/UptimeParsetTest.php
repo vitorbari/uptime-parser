@@ -191,4 +191,18 @@ class UptimeParsetTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('0 day(s), 0 hour(s), 0 minute(s) and 14 second(s)',      Parser::uptime('SNMP OK - Timeticks: (1400) 0:00:14.00')->toTimeString());
         $this->assertEquals('0 day(s), 0 hour(s), 2 minute(s) and 37 second(s)',      Parser::uptime('SNMP OK - Timeticks: (15773) 0:02:37.73')->toTimeString());
     }
+
+    public function testInvalidFormatParsing()
+    {
+        $this->setExpectedException('InvalidArgumentException');
+
+        Parser::uptime('SNMP');
+    }
+
+    public function testInvalidGetter()
+    {
+        $this->setExpectedException('InvalidArgumentException');
+
+        Parser::uptime('SNMP OK - Timeticks: (15773) 0:02:37.73')->milliseconds;
+    }
 }
