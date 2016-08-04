@@ -9,7 +9,7 @@ class SNMPTimeticks0Days implements ParserInterface
     public function match($uptime)
     {
         if (preg_match_all(
-            '/^SNMP\ OK\ -\ Timeticks[:,]\ \(\d+\)\ (?<hours>\d{1,2})[:,](?<minutes>\d{1,2})[:,](?<seconds>\d{1,2}).*$/',
+            '/^SNMP\sOK\s-\sTimeticks[:,]\s\(\d+\)\s(?<hours>\d{1,2})[:,](?<minutes>\d{1,2})[:,](?<seconds>\d{1,2}).*$/',
             $uptime,
             $matches
         )) {
