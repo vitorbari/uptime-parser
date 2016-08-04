@@ -3,13 +3,13 @@
 
 use VitorBari\UptimeParser\Parser;
 
-class SystemUptime implements ParserInterface
+class SistemaAtivo implements ParserInterface
 {
 
     public function match($uptime)
     {
         if (preg_match_all(
-            '/^System Uptime\s-\s(?:up\s)?(?<days>\d+)\sday[\(]?s[\),]?\s(?<hours>\d+)\shour[\(]?s[\),]?\s(?<minutes>\d+)\sminute[\(]?s[\)]?$/i',
+            '/^Sistema\sativo\sa\s(?<days>\d+)\sDia\(s\),\s(?<hours>\d+)\sHora\(s\)\se\s(?<minutes>\d+)\sMinutos\(s\)$/',
             $uptime,
             $matches
         )) {

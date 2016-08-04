@@ -23,13 +23,6 @@ class UptimeParsetTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(3,      Parser::uptime('SNMP OK - Timeticks: (29976523) 3 days, 11:16:05.23')->days);
         $this->assertEquals(6,      Parser::uptime('SNMP OK - Timeticks: (53459434) 6 days, 4:29:54.34')->days);
 
-        $this->assertEquals(44,     Parser::uptime('System Uptime - 44 day(s) 23 hour(s) 14 minute(s)')->days);
-        $this->assertEquals(51,     Parser::uptime('System Uptime - 51 day(s) 4 hour(s) 38 minute(s)')->days);
-        $this->assertEquals(0,      Parser::uptime('System Uptime - 0 day(s) 0 hour(s) 11 minute(s)')->days);
-        $this->assertEquals(1,      Parser::uptime('System Uptime - 1 day(s) 23 hour(s) 40 minute(s)')->days);
-        $this->assertEquals(8,      Parser::uptime('System Uptime - 8 day(s) 12 hour(s) 44 minute(s)')->days);
-        $this->assertEquals(117,    Parser::uptime('System Uptime - 117 day(s) 17 hour(s) 18 minute(s)')->days);
-
         $this->assertEquals(0,      Parser::uptime('SNMP OK - Timeticks, (6261427) 17,23,34.27')->days);
         $this->assertEquals(0,      Parser::uptime('SNMP OK - Timeticks: (1292426) 3:35:24.26')->days);
         $this->assertEquals(0,      Parser::uptime('SNMP OK - Timeticks: (3468804) 9:38:08.04')->days);
@@ -39,6 +32,22 @@ class UptimeParsetTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(0,      Parser::uptime('SNMP OK - Timeticks: (30405) 0:05:04.05')->days);
         $this->assertEquals(0,      Parser::uptime('SNMP OK - Timeticks: (1400) 0:00:14.00')->days);
         $this->assertEquals(0,      Parser::uptime('SNMP OK - Timeticks: (15773) 0:02:37.73')->days);
+
+        $this->assertEquals(44,     Parser::uptime('System Uptime - 44 day(s) 23 hour(s) 14 minute(s)')->days);
+        $this->assertEquals(51,     Parser::uptime('System Uptime - 51 day(s) 4 hour(s) 38 minute(s)')->days);
+        $this->assertEquals(0,      Parser::uptime('System Uptime - 0 day(s) 0 hour(s) 11 minute(s)')->days);
+        $this->assertEquals(1,      Parser::uptime('System Uptime - 1 day(s) 23 hour(s) 40 minute(s)')->days);
+        $this->assertEquals(8,      Parser::uptime('System Uptime - 8 day(s) 12 hour(s) 44 minute(s)')->days);
+        $this->assertEquals(117,    Parser::uptime('System Uptime - 117 day(s) 17 hour(s) 18 minute(s)')->days);
+
+        $this->assertEquals(57,     Parser::uptime('System Uptime - up 57 days, 12 Hours, 41 Minutes')->days);
+        $this->assertEquals(22,     Parser::uptime('System Uptime - up 22 days, 6 Hours, 24 Minutes')->days);
+        $this->assertEquals(19,     Parser::uptime('System Uptime - up 19 days, 17 Hours, 02 Minutes')->days);
+        $this->assertEquals(100,    Parser::uptime('System Uptime - up 100 days, 7 Hours, 57 Minutes')->days);
+
+        $this->assertEquals(57,     Parser::uptime('Sistema ativo a 57 Dia(s), 12 Hora(s) e 41 Minutos(s)')->days);
+        $this->assertEquals(0,      Parser::uptime('Sistema ativo a 0 Dia(s), 2 Hora(s) e 21 Minutos(s)')->days);
+        $this->assertEquals(245,    Parser::uptime('Sistema ativo a 245 Dia(s), 10 Hora(s) e 09 Minutos(s)')->days);
     }
 
     public function testHoursGetter()
@@ -61,13 +70,6 @@ class UptimeParsetTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(3 * 24 + 11,    Parser::uptime('SNMP OK - Timeticks: (29976523) 3 days, 11:16:05.23')->hours);
         $this->assertEquals(6 * 24 + 4,     Parser::uptime('SNMP OK - Timeticks: (53459434) 6 days, 4:29:54.34')->hours);
 
-        $this->assertEquals(44 * 24 + 23,   Parser::uptime('System Uptime - 44 day(s) 23 hour(s) 14 minute(s)')->hours);
-        $this->assertEquals(51 * 24 + 4,    Parser::uptime('System Uptime - 51 day(s) 4 hour(s) 38 minute(s)')->hours);
-        $this->assertEquals(0 * 24 + 0,     Parser::uptime('System Uptime - 0 day(s) 0 hour(s) 11 minute(s)')->hours);
-        $this->assertEquals(1 * 24 + 23,    Parser::uptime('System Uptime - 1 day(s) 23 hour(s) 40 minute(s)')->hours);
-        $this->assertEquals(8 * 24 + 12,    Parser::uptime('System Uptime - 8 day(s) 12 hour(s) 44 minute(s)')->hours);
-        $this->assertEquals(117 * 24 + 17,  Parser::uptime('System Uptime - 117 day(s) 17 hour(s) 18 minute(s)')->hours);
-
         $this->assertEquals(17,             Parser::uptime('SNMP OK - Timeticks, (6261427) 17,23,34.27')->hours);
         $this->assertEquals(3,              Parser::uptime('SNMP OK - Timeticks: (1292426) 3:35:24.26')->hours);
         $this->assertEquals(9,              Parser::uptime('SNMP OK - Timeticks: (3468804) 9:38:08.04')->hours);
@@ -77,6 +79,22 @@ class UptimeParsetTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(0,              Parser::uptime('SNMP OK - Timeticks: (30405) 0:05:04.05')->hours);
         $this->assertEquals(0,              Parser::uptime('SNMP OK - Timeticks: (1400) 0:00:14.00')->hours);
         $this->assertEquals(0,              Parser::uptime('SNMP OK - Timeticks: (15773) 0:02:37.73')->hours);
+
+        $this->assertEquals(44 * 24 + 23,   Parser::uptime('System Uptime - 44 day(s) 23 hour(s) 14 minute(s)')->hours);
+        $this->assertEquals(51 * 24 + 4,    Parser::uptime('System Uptime - 51 day(s) 4 hour(s) 38 minute(s)')->hours);
+        $this->assertEquals(0 * 24 + 0,     Parser::uptime('System Uptime - 0 day(s) 0 hour(s) 11 minute(s)')->hours);
+        $this->assertEquals(1 * 24 + 23,    Parser::uptime('System Uptime - 1 day(s) 23 hour(s) 40 minute(s)')->hours);
+        $this->assertEquals(8 * 24 + 12,    Parser::uptime('System Uptime - 8 day(s) 12 hour(s) 44 minute(s)')->hours);
+        $this->assertEquals(117 * 24 + 17,  Parser::uptime('System Uptime - 117 day(s) 17 hour(s) 18 minute(s)')->hours);
+
+        $this->assertEquals(57 * 24 + 12,   Parser::uptime('System Uptime - up 57 days, 12 Hours, 41 Minutes')->hours);
+        $this->assertEquals(22 * 24 + 6,    Parser::uptime('System Uptime - up 22 days, 6 Hours, 24 Minutes')->hours);
+        $this->assertEquals(19 * 24 + 17,   Parser::uptime('System Uptime - up 19 days, 17 Hours, 02 Minutes')->hours);
+        $this->assertEquals(100 * 24 + 7,   Parser::uptime('System Uptime - up 100 days, 7 Hours, 57 Minutes')->hours);
+
+        $this->assertEquals(57 * 24 + 12,   Parser::uptime('Sistema ativo a 57 Dia(s), 12 Hora(s) e 41 Minutos(s)')->hours);
+        $this->assertEquals(0 * 24  + 2,    Parser::uptime('Sistema ativo a 0 Dia(s), 2 Hora(s) e 21 Minutos(s)')->hours);
+        $this->assertEquals(245 * 24 + 10,  Parser::uptime('Sistema ativo a 245 Dia(s), 10 Hora(s) e 09 Minutos(s)')->hours);
     }
 
     public function testMinutesGetter()
@@ -99,13 +117,6 @@ class UptimeParsetTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(3 * 1440 + 11 * 60 + 16,    Parser::uptime('SNMP OK - Timeticks: (29976523) 3 days, 11:16:05.23')->minutes);
         $this->assertEquals(6 * 1440 + 4 * 60 + 29,     Parser::uptime('SNMP OK - Timeticks: (53459434) 6 days, 4:29:54.34')->minutes);
 
-        $this->assertEquals(44 * 1440 + 23 * 60 + 14,   Parser::uptime('System Uptime - 44 day(s) 23 hour(s) 14 minute(s)')->minutes);
-        $this->assertEquals(51 * 1440 + 4 * 60 + 38,    Parser::uptime('System Uptime - 51 day(s) 4 hour(s) 38 minute(s)')->minutes);
-        $this->assertEquals(0 * 1440 + 0 * 60 + 11,     Parser::uptime('System Uptime - 0 day(s) 0 hour(s) 11 minute(s)')->minutes);
-        $this->assertEquals(1 * 1440 + 23 * 60 + 40,    Parser::uptime('System Uptime - 1 day(s) 23 hour(s) 40 minute(s)')->minutes);
-        $this->assertEquals(8 * 1440 + 12 * 60 + 44,    Parser::uptime('System Uptime - 8 day(s) 12 hour(s) 44 minute(s)')->minutes);
-        $this->assertEquals(117 * 1440 + 17 * 60 + 18,  Parser::uptime('System Uptime - 117 day(s) 17 hour(s) 18 minute(s)')->minutes);
-
         $this->assertEquals(17 * 60 + 23,               Parser::uptime('SNMP OK - Timeticks, (6261427) 17,23,34.27')->minutes);
         $this->assertEquals(3 * 60 + 35,                Parser::uptime('SNMP OK - Timeticks: (1292426) 3:35:24.26')->minutes);
         $this->assertEquals(9 * 60 + 38,                Parser::uptime('SNMP OK - Timeticks: (3468804) 9:38:08.04')->minutes);
@@ -115,6 +126,22 @@ class UptimeParsetTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(0 * 60 + 5,                 Parser::uptime('SNMP OK - Timeticks: (30405) 0:05:04.05')->minutes);
         $this->assertEquals(0 * 60 + 0,                 Parser::uptime('SNMP OK - Timeticks: (1400) 0:00:14.00')->minutes);
         $this->assertEquals(0 * 60 + 2,                 Parser::uptime('SNMP OK - Timeticks: (15773) 0:02:37.73')->minutes);
+
+        $this->assertEquals(44 * 1440 + 23 * 60 + 14,   Parser::uptime('System Uptime - 44 day(s) 23 hour(s) 14 minute(s)')->minutes);
+        $this->assertEquals(51 * 1440 + 4 * 60 + 38,    Parser::uptime('System Uptime - 51 day(s) 4 hour(s) 38 minute(s)')->minutes);
+        $this->assertEquals(0 * 1440 + 0 * 60 + 11,     Parser::uptime('System Uptime - 0 day(s) 0 hour(s) 11 minute(s)')->minutes);
+        $this->assertEquals(1 * 1440 + 23 * 60 + 40,    Parser::uptime('System Uptime - 1 day(s) 23 hour(s) 40 minute(s)')->minutes);
+        $this->assertEquals(8 * 1440 + 12 * 60 + 44,    Parser::uptime('System Uptime - 8 day(s) 12 hour(s) 44 minute(s)')->minutes);
+        $this->assertEquals(117 * 1440 + 17 * 60 + 18,  Parser::uptime('System Uptime - 117 day(s) 17 hour(s) 18 minute(s)')->minutes);
+
+        $this->assertEquals(57 * 1440 + 12 * 60 + 41,   Parser::uptime('System Uptime - up 57 days, 12 Hours, 41 Minutes')->minutes);
+        $this->assertEquals(22 * 1440 + 6 * 60 + 24,    Parser::uptime('System Uptime - up 22 days, 6 Hours, 24 Minutes')->minutes);
+        $this->assertEquals(19 * 1440 + 17 * 60 + 2,   Parser::uptime('System Uptime - up 19 days, 17 Hours, 02 Minutes')->minutes);
+        $this->assertEquals(100 * 1440 + 7 * 60 + 57,   Parser::uptime('System Uptime - up 100 days, 7 Hours, 57 Minutes')->minutes);
+
+        $this->assertEquals(57 * 1440 + 12 * 60 + 41,   Parser::uptime('Sistema ativo a 57 Dia(s), 12 Hora(s) e 41 Minutos(s)')->minutes);
+        $this->assertEquals(0 * 1440 + 2 * 60 + 21,     Parser::uptime('Sistema ativo a 0 Dia(s), 2 Hora(s) e 21 Minutos(s)')->minutes);
+        $this->assertEquals(245 * 1440 + 10 * 60 + 9,  Parser::uptime('Sistema ativo a 245 Dia(s), 10 Hora(s) e 09 Minutos(s)')->minutes);
     }
 
     public function testSecondsGetter()
@@ -137,13 +164,6 @@ class UptimeParsetTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(3 * 86400 + 11 * 3600 + 16 * 60 + 05,    Parser::uptime('SNMP OK - Timeticks: (29976523) 3 days, 11:16:05.23')->seconds);
         $this->assertEquals(6 * 86400 + 4 * 3600 + 29 * 60 + 54,     Parser::uptime('SNMP OK - Timeticks: (53459434) 6 days, 4:29:54.34')->seconds);
 
-        $this->assertEquals(44 * 86400 + 23 * 3600 + 14 * 60,        Parser::uptime('System Uptime - 44 day(s) 23 hour(s) 14 minute(s)')->seconds);
-        $this->assertEquals(51 * 86400 + 4 * 3600 + 38 * 60,         Parser::uptime('System Uptime - 51 day(s) 4 hour(s) 38 minute(s)')->seconds);
-        $this->assertEquals(0 * 86400 + 0 * 3600 + 11 * 60,          Parser::uptime('System Uptime - 0 day(s) 0 hour(s) 11 minute(s)')->seconds);
-        $this->assertEquals(1 * 86400 + 23 * 3600 + 40 * 60,         Parser::uptime('System Uptime - 1 day(s) 23 hour(s) 40 minute(s)')->seconds);
-        $this->assertEquals(8 * 86400 + 12 * 3600 + 44 * 60,         Parser::uptime('System Uptime - 8 day(s) 12 hour(s) 44 minute(s)')->seconds);
-        $this->assertEquals(117 * 86400 + 17 * 3600 + 18 * 60,       Parser::uptime('System Uptime - 117 day(s) 17 hour(s) 18 minute(s)')->seconds);
-
         $this->assertEquals(17 * 3600 + 23 * 60 + 34,                Parser::uptime('SNMP OK - Timeticks, (6261427) 17,23,34.27')->seconds);
         $this->assertEquals(3 * 3600 + 35 * 60 + 24,                 Parser::uptime('SNMP OK - Timeticks: (1292426) 3:35:24.26')->seconds);
         $this->assertEquals(9 * 3600 + 38 * 60 + 8,                  Parser::uptime('SNMP OK - Timeticks: (3468804) 9:38:08.04')->seconds);
@@ -153,6 +173,22 @@ class UptimeParsetTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(0 * 3600 + 5 * 60 + 4,                   Parser::uptime('SNMP OK - Timeticks: (30405) 0:05:04.05')->seconds);
         $this->assertEquals(0 * 3600 + 0 * 60 + 14,                  Parser::uptime('SNMP OK - Timeticks: (1400) 0:00:14.00')->seconds);
         $this->assertEquals(0 * 3600 + 2 * 60 + 37,                  Parser::uptime('SNMP OK - Timeticks: (15773) 0:02:37.73')->seconds);
+
+        $this->assertEquals(44 * 86400 + 23 * 3600 + 14 * 60,        Parser::uptime('System Uptime - 44 day(s) 23 hour(s) 14 minute(s)')->seconds);
+        $this->assertEquals(51 * 86400 + 4 * 3600 + 38 * 60,         Parser::uptime('System Uptime - 51 day(s) 4 hour(s) 38 minute(s)')->seconds);
+        $this->assertEquals(0 * 86400 + 0 * 3600 + 11 * 60,          Parser::uptime('System Uptime - 0 day(s) 0 hour(s) 11 minute(s)')->seconds);
+        $this->assertEquals(1 * 86400 + 23 * 3600 + 40 * 60,         Parser::uptime('System Uptime - 1 day(s) 23 hour(s) 40 minute(s)')->seconds);
+        $this->assertEquals(8 * 86400 + 12 * 3600 + 44 * 60,         Parser::uptime('System Uptime - 8 day(s) 12 hour(s) 44 minute(s)')->seconds);
+        $this->assertEquals(117 * 86400 + 17 * 3600 + 18 * 60,       Parser::uptime('System Uptime - 117 day(s) 17 hour(s) 18 minute(s)')->seconds);
+
+        $this->assertEquals(57 * 86400 + 12 * 3600 + 41 * 60,        Parser::uptime('System Uptime - up 57 days, 12 Hours, 41 Minutes')->seconds);
+        $this->assertEquals(22 * 86400 + 6 * 3600 + 24 * 60,         Parser::uptime('System Uptime - up 22 days, 6 Hours, 24 Minutes')->seconds);
+        $this->assertEquals(19 * 86400 + 17 * 3600 + 2 * 60,         Parser::uptime('System Uptime - up 19 days, 17 Hours, 02 Minutes')->seconds);
+        $this->assertEquals(100 * 86400 + 7 * 3600 + 57 * 60,        Parser::uptime('System Uptime - up 100 days, 7 Hours, 57 Minutes')->seconds);
+
+        $this->assertEquals(57 * 86400 + 12 * 3600 + 41 * 60,        Parser::uptime('Sistema ativo a 57 Dia(s), 12 Hora(s) e 41 Minutos(s)')->seconds);
+        $this->assertEquals(0 * 86400 + 2 * 3600 + 21 * 60,          Parser::uptime('Sistema ativo a 0 Dia(s), 2 Hora(s) e 21 Minutos(s)')->seconds);
+        $this->assertEquals(245 * 86400 + 10 * 3600 + 9 * 60,        Parser::uptime('Sistema ativo a 245 Dia(s), 10 Hora(s) e 09 Minutos(s)')->seconds);
     }
 
     public function testTimeStringGetter()
@@ -174,13 +210,6 @@ class UptimeParsetTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('3 day(s), 11 hour(s), 16 minute(s) and 5 second(s)',     Parser::uptime('SNMP OK - Timeticks: (29976523) 3 days, 11:16:05.23')->toTimeString());
         $this->assertEquals('6 day(s), 4 hour(s), 29 minute(s) and 54 second(s)',     Parser::uptime('SNMP OK - Timeticks: (53459434) 6 days, 4:29:54.34')->toTimeString());
 
-        $this->assertEquals('44 day(s), 23 hour(s), 14 minute(s) and 0 second(s)',    Parser::uptime('System Uptime - 44 day(s) 23 hour(s) 14 minute(s)')->toTimeString());
-        $this->assertEquals('51 day(s), 4 hour(s), 38 minute(s) and 0 second(s)',     Parser::uptime('System Uptime - 51 day(s) 4 hour(s) 38 minute(s)')->toTimeString());
-        $this->assertEquals('0 day(s), 0 hour(s), 11 minute(s) and 0 second(s)',      Parser::uptime('System Uptime - 0 day(s) 0 hour(s) 11 minute(s)')->toTimeString());
-        $this->assertEquals('1 day(s), 23 hour(s), 40 minute(s) and 0 second(s)',     Parser::uptime('System Uptime - 1 day(s) 23 hour(s) 40 minute(s)')->toTimeString());
-        $this->assertEquals('8 day(s), 12 hour(s), 44 minute(s) and 0 second(s)',     Parser::uptime('System Uptime - 8 day(s) 12 hour(s) 44 minute(s)')->toTimeString());
-        $this->assertEquals('117 day(s), 17 hour(s), 18 minute(s) and 0 second(s)',   Parser::uptime('System Uptime - 117 day(s) 17 hour(s) 18 minute(s)')->toTimeString());
-
         $this->assertEquals('0 day(s), 17 hour(s), 23 minute(s) and 34 second(s)',    Parser::uptime('SNMP OK - Timeticks, (6261427) 17,23,34.27')->toTimeString());
         $this->assertEquals('0 day(s), 3 hour(s), 35 minute(s) and 24 second(s)',     Parser::uptime('SNMP OK - Timeticks: (1292426) 3:35:24.26')->toTimeString());
         $this->assertEquals('0 day(s), 9 hour(s), 38 minute(s) and 8 second(s)',      Parser::uptime('SNMP OK - Timeticks: (3468804) 9:38:08.04')->toTimeString());
@@ -190,6 +219,22 @@ class UptimeParsetTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('0 day(s), 0 hour(s), 5 minute(s) and 4 second(s)',       Parser::uptime('SNMP OK - Timeticks: (30405) 0:05:04.05')->toTimeString());
         $this->assertEquals('0 day(s), 0 hour(s), 0 minute(s) and 14 second(s)',      Parser::uptime('SNMP OK - Timeticks: (1400) 0:00:14.00')->toTimeString());
         $this->assertEquals('0 day(s), 0 hour(s), 2 minute(s) and 37 second(s)',      Parser::uptime('SNMP OK - Timeticks: (15773) 0:02:37.73')->toTimeString());
+
+        $this->assertEquals('44 day(s), 23 hour(s), 14 minute(s) and 0 second(s)',    Parser::uptime('System Uptime - 44 day(s) 23 hour(s) 14 minute(s)')->toTimeString());
+        $this->assertEquals('51 day(s), 4 hour(s), 38 minute(s) and 0 second(s)',     Parser::uptime('System Uptime - 51 day(s) 4 hour(s) 38 minute(s)')->toTimeString());
+        $this->assertEquals('0 day(s), 0 hour(s), 11 minute(s) and 0 second(s)',      Parser::uptime('System Uptime - 0 day(s) 0 hour(s) 11 minute(s)')->toTimeString());
+        $this->assertEquals('1 day(s), 23 hour(s), 40 minute(s) and 0 second(s)',     Parser::uptime('System Uptime - 1 day(s) 23 hour(s) 40 minute(s)')->toTimeString());
+        $this->assertEquals('8 day(s), 12 hour(s), 44 minute(s) and 0 second(s)',     Parser::uptime('System Uptime - 8 day(s) 12 hour(s) 44 minute(s)')->toTimeString());
+        $this->assertEquals('117 day(s), 17 hour(s), 18 minute(s) and 0 second(s)',   Parser::uptime('System Uptime - 117 day(s) 17 hour(s) 18 minute(s)')->toTimeString());
+
+        $this->assertEquals('57 day(s), 12 hour(s), 41 minute(s) and 0 second(s)',    Parser::uptime('System Uptime - up 57 days, 12 Hours, 41 Minutes')->toTimeString());
+        $this->assertEquals('22 day(s), 6 hour(s), 24 minute(s) and 0 second(s)',     Parser::uptime('System Uptime - up 22 days, 6 Hours, 24 Minutes')->toTimeString());
+        $this->assertEquals('19 day(s), 17 hour(s), 2 minute(s) and 0 second(s)',     Parser::uptime('System Uptime - up 19 days, 17 Hours, 02 Minutes')->toTimeString());
+        $this->assertEquals('100 day(s), 7 hour(s), 57 minute(s) and 0 second(s)',    Parser::uptime('System Uptime - up 100 days, 7 Hours, 57 Minutes')->toTimeString());
+
+        $this->assertEquals('57 day(s), 12 hour(s), 41 minute(s) and 0 second(s)',    Parser::uptime('Sistema ativo a 57 Dia(s), 12 Hora(s) e 41 Minutos(s)')->toTimeString());
+        $this->assertEquals('0 day(s), 2 hour(s), 21 minute(s) and 0 second(s)',      Parser::uptime('Sistema ativo a 0 Dia(s), 2 Hora(s) e 21 Minutos(s)')->toTimeString());
+        $this->assertEquals('245 day(s), 10 hour(s), 9 minute(s) and 0 second(s)',    Parser::uptime('Sistema ativo a 245 Dia(s), 10 Hora(s) e 09 Minutos(s)')->toTimeString());
     }
 
     public function testInvalidFormatParsing()
