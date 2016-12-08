@@ -14,7 +14,7 @@ class SistemaAtivo implements ParserInterface
             $matches
         )) {
             return $matches['days'][0] * Parser::SECONDS_PER_DAY + $matches['hours'][0] * Parser::SECONDS_PER_HOUR +
-            $matches['minutes'][0] * Parser::SECONDS_PER_MINUTE;
+                $matches['minutes'][0] * Parser::SECONDS_PER_MINUTE;
         }
     }
 }

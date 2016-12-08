@@ -55,10 +55,10 @@ class Parser
      */
     private function parse($uptime)
     {
-        $this->seconds = NULL;
+        $this->seconds = null;
 
         foreach ($this->parsers as $parser) {
-            $classname = __NAMESPACE__ . '\Parsers\\' . $parser;
+            $classname     = __NAMESPACE__ . '\Parsers\\' . $parser;
             $parser_object = new $classname;
 
             $seconds = $parser_object->match($uptime);
@@ -69,7 +69,7 @@ class Parser
             }
         }
 
-        if ($this->seconds == NULL) {
+        if ($this->seconds == null) {
             throw new InvalidArgumentException(sprintf("Unable to parse the string '%s'", $uptime));
         }
     }
@@ -82,7 +82,7 @@ class Parser
     public function toTimeString()
     {
         if (!$this->seconds) {
-            return NULL;
+            return null;
         }
 
         $dtF = new \DateTime('@0');

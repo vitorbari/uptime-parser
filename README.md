@@ -1,6 +1,7 @@
 # uptime-parser
 
 [![Build Status](https://travis-ci.org/vitorbari/uptime-parser.svg?branch=master)](https://travis-ci.org/vitorbari/uptime-parser)
+[![StyleCI](https://styleci.io/repos/64677269/shield)](https://styleci.io/repos/64677269)
 
 A PHP package for parsing uptime command output
 

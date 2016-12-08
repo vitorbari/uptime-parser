@@ -14,7 +14,7 @@ class SNMPTimeticks implements ParserInterface
             $matches
         )) {
             return $matches['days'][0] * Parser::SECONDS_PER_DAY + $matches['hours'][0] * Parser::SECONDS_PER_HOUR +
-            $matches['minutes'][0] * Parser::SECONDS_PER_MINUTE + $matches['seconds'][0];
+                $matches['minutes'][0] * Parser::SECONDS_PER_MINUTE + $matches['seconds'][0];
         }
     }
 }
