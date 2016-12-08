@@ -1,11 +1,9 @@
 <?php namespace VitorBari\UptimeParser\Parsers;
 
-
 use VitorBari\UptimeParser\Parser;
 
 class SNMPTimeticks implements ParserInterface
 {
-
     public function match($uptime)
     {
         if (preg_match_all(
