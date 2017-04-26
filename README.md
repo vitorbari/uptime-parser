@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/vitorbari/uptime-parser.svg?branch=master)](https://travis-ci.org/vitorbari/uptime-parser)
 [![StyleCI](https://styleci.io/repos/64677269/shield)](https://styleci.io/repos/64677269)
+[![Coverage Status](https://coveralls.io/repos/github/vitorbari/uptime-parser/badge.svg?branch=master)](https://coveralls.io/github/vitorbari/uptime-parser?branch=master)
 
 A PHP package for parsing uptime command output
 
