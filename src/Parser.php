@@ -20,6 +20,7 @@ class Parser
         'SNMPTimeticks',
         'SNMPTimeticks0Days',
         'SystemUptime',
+        'SystemUptimeMinutes',
         'SistemaAtivo'
     );
 

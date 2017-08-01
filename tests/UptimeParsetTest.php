@@ -136,12 +136,16 @@ class UptimeParsetTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(57 * 1440 + 12 * 60 + 41,   Parser::uptime('System Uptime - up 57 days, 12 Hours, 41 Minutes')->minutes);
         $this->assertEquals(22 * 1440 + 6 * 60 + 24,    Parser::uptime('System Uptime - up 22 days, 6 Hours, 24 Minutes')->minutes);
-        $this->assertEquals(19 * 1440 + 17 * 60 + 2,   Parser::uptime('System Uptime - up 19 days, 17 Hours, 02 Minutes')->minutes);
+        $this->assertEquals(19 * 1440 + 17 * 60 + 2,    Parser::uptime('System Uptime - up 19 days, 17 Hours, 02 Minutes')->minutes);
         $this->assertEquals(100 * 1440 + 7 * 60 + 57,   Parser::uptime('System Uptime - up 100 days, 7 Hours, 57 Minutes')->minutes);
 
         $this->assertEquals(57 * 1440 + 12 * 60 + 41,   Parser::uptime('Sistema ativo a 57 Dia(s), 12 Hora(s) e 41 Minutos(s)')->minutes);
         $this->assertEquals(0 * 1440 + 2 * 60 + 21,     Parser::uptime('Sistema ativo a 0 Dia(s), 2 Hora(s) e 21 Minutos(s)')->minutes);
-        $this->assertEquals(245 * 1440 + 10 * 60 + 9,  Parser::uptime('Sistema ativo a 245 Dia(s), 10 Hora(s) e 09 Minutos(s)')->minutes);
+        $this->assertEquals(245 * 1440 + 10 * 60 + 9,   Parser::uptime('Sistema ativo a 245 Dia(s), 10 Hora(s) e 09 Minutos(s)')->minutes);
+
+        $this->assertEquals(23,                         Parser::uptime('System Uptime - 23 minute(s)')->minutes);
+        $this->assertEquals(1440,                       Parser::uptime('System Uptime - 1440 minute(s)')->minutes);
+        $this->assertEquals(5760,                       Parser::uptime('System Uptime - 5760 minute(s)')->minutes);
     }
 
     public function testSecondsGetter()
