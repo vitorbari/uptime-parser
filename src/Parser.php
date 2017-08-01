@@ -17,11 +17,11 @@ class Parser
      * @var array
      */
     private $parsers = array(
+        'SistemaAtivo',
         'SNMPTimeticks',
         'SNMPTimeticks0Days',
         'SystemUptime',
         'SystemUptimeMinutes',
-        'SistemaAtivo'
     );
 
     const SECONDS_PER_DAY = 86400;
