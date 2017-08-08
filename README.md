@@ -42,6 +42,7 @@ SNMP OK - Timeticks, (12490039) 1 day, 10,41,40.39
 SNMP OK - Timeticks, (6261427) 17,23,34.27
 System Uptime - 44 day(s) 23 hour(s) 14 minute(s)
 System Uptime - up 57 days, 12 Hours, 41 Minutes
+System Uptime - 10 minute(s)
 Sistema ativo a 32 Dia(s), 10 Hora(s) e 38 Minutos(s)
 ```
 
