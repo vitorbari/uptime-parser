@@ -78,7 +78,9 @@ class Parser
     ///////////////////////// GETTERS /////////////////////
 
     /**
-     *
+     * Display in human readeable format
+     * 
+     * @return string
      */
     public function toTimeString()
     {
@@ -89,6 +91,16 @@ class Parser
         $dtF = new \DateTime('@0');
         $dtT = new \DateTime("@$this->seconds");
         return $dtF->diff($dtT)->format('%a day(s), %h hour(s), %i minute(s) and %s second(s)');
+    }
+
+    /**
+     * Return toTimeString content
+     * 
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->toTimeString();
     }
 
     /**

@@ -29,6 +29,7 @@ echo $uptime->hours; // 547
 echo $uptime->minutes; // 32863
 echo $uptime->seconds; // 1971815
 echo $uptime->toTimeString(); // '22 day(s), 19 hour(s), 43 minute(s) and 35 second(s)'
+echo $uptime; // '22 day(s), 19 hour(s), 43 minute(s) and 35 second(s)'
 
 ```
 
