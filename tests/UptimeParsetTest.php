@@ -2,7 +2,9 @@
 
 use VitorBari\UptimeParser\Parser;
 
-class UptimeParsetTest extends PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class UptimeParsetTest extends TestCase
 {
     public function testDaysGetter()
     {

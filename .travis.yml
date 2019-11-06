@@ -1,5 +1,7 @@
 language: php
 
+dist: trusty
+
 php:
   - 5.4
   - 5.5
@@ -14,7 +16,7 @@ before_script:
 
 script:
   - mkdir -p build/logs
-  - phpunit
+  - vendor/bin/phpunit
 
 after_success:
   - travis_retry php vendor/bin/coveralls

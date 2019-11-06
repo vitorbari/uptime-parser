@@ -79,7 +79,7 @@ class Parser
 
     /**
      * Display in human readeable format
-     * 
+     *
      * @return string
      */
     public function toTimeString()
@@ -95,7 +95,7 @@ class Parser
 
     /**
      * Return toTimeString content
-     * 
+     *
      * @return string
      */
     public function __toString()
